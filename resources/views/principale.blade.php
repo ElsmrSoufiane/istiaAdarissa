@@ -91,16 +91,7 @@
 	</section>
 	<!-- Begin Footer
 	================================================== -->
-	<div class="footer">
-		<p class="pull-left">
-			 Copyright &copy; 2025 istia adarissa
-		</p>
-		<p class="pull-right">
-
-		</p>
-		<div class="clearfix">
-		</div>
-	</div>
+	
 	<!-- End Footer
 	================================================== -->
 

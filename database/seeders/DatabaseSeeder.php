@@ -13,11 +13,11 @@ class DatabaseSeeder extends Seeder
     public function run(): void
     {
         DB::table('users')->insert([
-            'name' => 'admin',
+            'name' => 'soufiane lasmar',
             'description' => 'responsable du group 203',
             'login' => 'admin1',
             'password' => Hash::make('p2'),
-            'image' => 'admin.jpg',
+            'image' => 'soufiane.JPEG',
             'created_at' => now(),
             'updated_at' => now(),
         ]);
