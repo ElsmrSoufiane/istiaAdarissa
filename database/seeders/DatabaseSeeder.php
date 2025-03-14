@@ -17,7 +17,7 @@ class DatabaseSeeder extends Seeder
             'description' => 'responsable du group 203',
             'login' => 'admin1',
             'password' => Hash::make('p2'),
-            'image' => 'user.png',
+            'image' => 'storage/user.png',
             'created_at' => now(),
             'updated_at' => now(),
         ]);
