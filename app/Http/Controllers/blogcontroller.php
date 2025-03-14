@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Post;
 use App\Models\Emploi;
 use App\Models\User;
+use App\Models\Group;
 class blogcontroller extends Controller
 { 
     

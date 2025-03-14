@@ -1,6 +1,6 @@
 @extends("welcome")
 @section("content")
-<center><h1>ajouter un emploi</h1></center>
+<center><h1>modifier un emploi</h1></center>
 <form method='POST'  action="{{'/updateemploi/'.$id}}" enctype="multipart/form-data">
   @csrf
   <div class="form-group">

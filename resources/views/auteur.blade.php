@@ -16,10 +16,10 @@
 					<div class="col-md-2">
 						
 					
-						<a href="author.html"><img class="author-thumb" src="{{ asset($user->image) }}" alt="{{$user->name}}"></a>
+						<a ><img class="author-thumb" src="{{ asset($user->image) }}" alt="{{$user->name}}"></a>
 					</div>
 					<div class="col-md-10">
-						<a class="link-dark" href="author.html">{{$user->name}}</a>
+						<a class="link-dark" >{{$user->name}}</a>
 						<span class="author-description">{{$user->description}}</span>
 
 					</div>
