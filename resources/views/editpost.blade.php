@@ -1,6 +1,6 @@
 @extends("welcome")
 @section("content")
-<center><h1>modifier un post</h1></center>
+<center><h1>modifier un poste</h1></center>
 <form method='POST'  action="{{'/updatepost/'.$id}}" enctype="multipart/form-data">
   @csrf
   <div class="form-group">

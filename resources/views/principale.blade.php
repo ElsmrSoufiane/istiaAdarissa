@@ -17,7 +17,7 @@
 	================================================== -->
 	<section class="recent-posts">
 	<div class="section-title">
-		<h2><span>posts</span></h2>
+		<h2><span>postes</span></h2>
 	</div>
 	<div class="card-columns listrecent">
 	@foreach($posts as $post)
