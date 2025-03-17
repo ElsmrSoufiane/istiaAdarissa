@@ -21,6 +21,18 @@ class DatabaseSeeder extends Seeder
             'created_at' => now(),
             'updated_at' => now(),
         ]);
+        DB::table('groupes')->insert([
+            ['name' => 'dev1','name' => 'tout les groupes',
+            'created_at' => now(),
+            'updated_at' => now()],
+            ['name' => 'dev2',
+            'created_at' => now(),
+            'updated_at' => now()],
+            ['name' => 'dev3',
+            'created_at' => now(),
+            'updated_at' => now()]
+            
+        ]);
     }
     
 }

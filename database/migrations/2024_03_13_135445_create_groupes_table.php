@@ -12,9 +12,8 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('groupes', function (Blueprint $table) {
+            $table->id();
             $table->string("name");
-          
-            $table->primary("name");
             $table->timestamps();
         });
     }

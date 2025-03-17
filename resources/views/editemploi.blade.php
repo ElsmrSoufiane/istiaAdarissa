@@ -17,7 +17,14 @@
     <label for="exampleInputPassword1">description:</label>
     <textarea  rows=5 cols=10 name="description" type="password" class="form-control" id="exampleInputPassword1" placeholder="description">{{$emploi->description}}</textarea>
   </div>
-  
+  <div class="form-group">
+    <label for="exampleInputPassword1">groupe:</label>
+    <select value="{{$post->groupe_id}}" name="groupe_id" class="form-control" id="exampleInputPassword1">
+      @foreach($groups as $groupe)
+      <option value="{{$groupe->id}}">{{$groupe->name}}</option>
+      @endforeach
+</select>
+  </div>
   @error("description")
     <div class="alert alert-danger">
         {{ $message }}

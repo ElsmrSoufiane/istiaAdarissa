@@ -6,15 +6,17 @@ use Illuminate\Http\Request;
 use App\Models\Post;
 use App\Models\Emploi;
 use App\Models\User;
-use App\Models\Group;
+use App\Models\Groupe;
 class blogcontroller extends Controller
 { 
     
     public function index()
-    {  $posts=Post::all();
+    {  
+        $posts=Post::all();
+        $groups=Groupe::all();
         $users=User::all();
         $emplois=Emploi::all();
-        return view('principale',compact('posts','users','emplois'));
+        return view('principale',compact('posts','users','emplois','groups'));
         
     }
    
@@ -22,13 +24,17 @@ class blogcontroller extends Controller
     {
         $posts=Post::all();
         $users=User::all();
-        return view('posts',compact('posts','users'));
+        $groups=Groupe::all();
+        
+        return view('posts',compact('posts','users','groups'));
     }
     public function emplois()
     {
+        $groups=Groupe::all();
+
         $emplois=Emploi::all();
         $users=User::all();
-        return view('emplois',compact('emplois','users'));
+        return view('emplois',compact('emplois','users','groups'));
     }
     public function login()
     {
@@ -53,11 +59,15 @@ class blogcontroller extends Controller
             'titre' => 'required',
             'description' => 'required',
             'image' => 'required|image',
-            "note"=>""
+            "note"=>"",
+            "groupe_id"=>"required"
         ]);
+        
         $path=$request->file('image')->store('images','public');
         $data['image']=$path;
         $data['user_id']=auth()->user()->id;
+        $data['groupe_id']=$request->groupe_id;
+
 
         Post::create($data);
         return redirect('/posts')->with('success', 'post ajouté avec succès');
@@ -66,8 +76,10 @@ class blogcontroller extends Controller
         $data = $request->validate([
             'titre' => 'required',
             'description' => 'required',
-            'image' => 'required|image',"note"=>""
+            'image' => 'required|image',"note"=>"",  "groupe_id"=>"required"
         ]);
+        $data['groupe_id']=$request->groupe_id;
+
         $path=$request->file('image')->store('images','public');
         $data['image']=$path;
         $data['user_id']=auth()->user()->id;
@@ -76,18 +88,24 @@ class blogcontroller extends Controller
     }
     public function createpost()
     {
-        return view('createpost');
+        $groups=Groupe::all();
+
+        return view('createpost',compact('groups'));
     }
     public function createemploi()
     {
-        return view('createemploi');
+        $groups=Groupe::all();
+
+        return view('createemploi',compact('groups'));
     }
     public function auteur($id){
         $user=User::find($id);
         $posts=Post::where('user_id',$id)->get();
         $emplois=Emploi::where('user_id',$id)->get();
         $users=User::all();
-        return view('auteur',compact('user','posts','emplois','users'));
+        $groups=Groupe::all();
+
+        return view('auteur',compact('user','posts','emplois','users','groups'));
     }
     public function emploi($id)
     {

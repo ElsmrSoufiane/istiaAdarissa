@@ -14,9 +14,7 @@ return new class extends Migration
         Schema::create('posts', function (Blueprint $table) {
             $table->id();
             $table->foreignId("user_id")->constrained();
-         
-        
-
+            $table->foreignId("groupe_id")->constrained();
             $table->text("titre");
             $table->text("description");
             $table->text("note")->nullable();
